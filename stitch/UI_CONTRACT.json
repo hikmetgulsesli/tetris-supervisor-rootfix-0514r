@@ -1,0 +1,567 @@
+[
+  {
+    "screenId": "e502cff73fce4603bf9b87d4f171e3fb",
+    "screenTitle": "Game Over",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "Play Again",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Main",
+        "line": 174
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Play Again",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "Main",
+        "line": 174
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 2,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "c2d35725a3eb46d1a6b0eed84ce7c1b2",
+    "screenTitle": "Main Menu",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "START GAME",
+        "line": 133
+      },
+      {
+        "type": "button",
+        "label": "RESUME",
+        "line": 138
+      },
+      {
+        "type": "button",
+        "label": "HOW TO PLAY",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 148
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "START GAME",
+        "line": 133
+      },
+      {
+        "type": "button",
+        "label": "RESUME",
+        "line": 138
+      },
+      {
+        "type": "button",
+        "label": "HOW TO PLAY",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 148
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 4,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "b7f85229a8d942648f8137bf97ef61aa",
+    "screenTitle": "Pause Overlay",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "Play",
+        "line": 111
+      },
+      {
+        "type": "button",
+        "label": "leaderboard",
+        "line": 116
+      },
+      {
+        "type": "button",
+        "label": "Controls",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "history",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 146
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "RESUME",
+        "line": 230
+      },
+      {
+        "type": "button",
+        "label": "RESTART",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "QUIT TO MENU",
+        "line": 243
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Play",
+        "line": 111
+      },
+      {
+        "type": "button",
+        "label": "leaderboard",
+        "line": 116
+      },
+      {
+        "type": "button",
+        "label": "Controls",
+        "line": 120
+      },
+      {
+        "type": "button",
+        "label": "history",
+        "line": 124
+      },
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 146
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "RESUME",
+        "line": 230
+      },
+      {
+        "type": "button",
+        "label": "RESTART",
+        "line": 238
+      },
+      {
+        "type": "button",
+        "label": "QUIT TO MENU",
+        "line": 243
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 11,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "ac27644e91b2441c8c86c970f61b85a4",
+    "screenTitle": "Game Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Play",
+        "href": "#",
+        "line": 189
+      },
+      {
+        "type": "link",
+        "label": "leaderboard",
+        "href": "#",
+        "line": 193
+      },
+      {
+        "type": "link",
+        "label": "Controls",
+        "href": "#",
+        "line": 197
+      },
+      {
+        "type": "link",
+        "label": "history",
+        "href": "#",
+        "line": 201
+      },
+      {
+        "type": "link",
+        "label": "Privacy",
+        "href": "#",
+        "line": 340
+      },
+      {
+        "type": "link",
+        "label": "Terms",
+        "href": "#",
+        "line": 341
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 342
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 170
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "rotate_right",
+        "line": 307
+      },
+      {
+        "type": "button",
+        "label": "arrow_upward",
+        "line": 312
+      },
+      {
+        "type": "button",
+        "label": "arrow_back",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "arrow_downward",
+        "line": 319
+      },
+      {
+        "type": "button",
+        "label": "arrow_forward",
+        "line": 322
+      },
+      {
+        "type": "button",
+        "label": "arrow_downward",
+        "line": 329
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Play",
+        "href": "#",
+        "line": 189
+      },
+      {
+        "type": "link",
+        "label": "leaderboard",
+        "href": "#",
+        "line": 193
+      },
+      {
+        "type": "link",
+        "label": "Controls",
+        "href": "#",
+        "line": 197
+      },
+      {
+        "type": "link",
+        "label": "history",
+        "href": "#",
+        "line": 201
+      },
+      {
+        "type": "link",
+        "label": "Privacy",
+        "href": "#",
+        "line": 340
+      },
+      {
+        "type": "link",
+        "label": "Terms",
+        "href": "#",
+        "line": 341
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 342
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 170
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 207
+      },
+      {
+        "type": "button",
+        "label": "rotate_right",
+        "line": 307
+      },
+      {
+        "type": "button",
+        "label": "arrow_upward",
+        "line": 312
+      },
+      {
+        "type": "button",
+        "label": "arrow_back",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "arrow_downward",
+        "line": 319
+      },
+      {
+        "type": "button",
+        "label": "arrow_forward",
+        "line": 322
+      },
+      {
+        "type": "button",
+        "label": "arrow_downward",
+        "line": 329
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 17,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "47aee2e2f0894ca5aaf4fb8a158a9d6b",
+    "screenTitle": "Controls Help",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Play",
+        "href": "#",
+        "line": 187
+      },
+      {
+        "type": "link",
+        "label": "leaderboard",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Controls",
+        "href": "#",
+        "line": 197
+      },
+      {
+        "type": "link",
+        "label": "history",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Privacy",
+        "href": "#",
+        "line": 380
+      },
+      {
+        "type": "link",
+        "label": "Terms",
+        "href": "#",
+        "line": 381
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 382
+      },
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 208
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 221
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 224
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 227
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 242
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Play",
+        "href": "#",
+        "line": 187
+      },
+      {
+        "type": "link",
+        "label": "leaderboard",
+        "href": "#",
+        "line": 192
+      },
+      {
+        "type": "link",
+        "label": "Controls",
+        "href": "#",
+        "line": 197
+      },
+      {
+        "type": "link",
+        "label": "history",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "link",
+        "label": "Privacy",
+        "href": "#",
+        "line": 380
+      },
+      {
+        "type": "link",
+        "label": "Terms",
+        "href": "#",
+        "line": 381
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 382
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "RESET SESSION",
+        "line": 208
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 221
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 224
+      },
+      {
+        "type": "button",
+        "label": "pause",
+        "line": 227
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 242
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 12,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
