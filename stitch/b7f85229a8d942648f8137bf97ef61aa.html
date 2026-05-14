@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tetris Supervisor - Paused</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;900&display=swap');
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "tertiary-container": "#e7e2d9",
+                        "surface-container-highest": "#353535",
+                        "on-primary-fixed": "#191c1e",
+                        "background": "#131313",
+                        "surface-variant": "#353535",
+                        "error": "#ffb4ab",
+                        "primary": "#ffffff",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-primary-container": "#626567",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "secondary-fixed": "#d5e3fd",
+                        "on-surface-variant": "#c4c7c9",
+                        "secondary-container": "#3c4a5e",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#cbc6bd",
+                        "on-primary": "#2d3133",
+                        "primary-container": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#494640",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "inverse-primary": "#5c5f61",
+                        "outline": "#8e9193",
+                        "on-primary-fixed-variant": "#444749",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#1d1b16",
+                        "outline-variant": "#444749",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "surface-container-high": "#2a2a2a",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#e7e2d9",
+                        "on-secondary": "#233144",
+                        "secondary": "#b9c7e0",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#ffffff",
+                        "on-tertiary-container": "#67645d",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#c4c7c9",
+                        "on-tertiary": "#32302a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-secondary-container": "#abb9d2",
+                        "surface-tint": "#c4c7c9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "touch-target": "44px",
+                        "stack-md": "16px",
+                        "grid-cell": "32px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "panel-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Geist"],
+                        "status-label": ["Geist"],
+                        "data-mono": ["Geist"],
+                        "body-base": ["Geist"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "status-label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "data-mono": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-base": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden font-body-base text-body-base selection:bg-primary selection:text-on-primary">
+<!-- BACKGROUND UI (Blurred by overlay) -->
+<div class="h-full w-full flex">
+<!-- SideNavBar Shared Component -->
+<nav class="bg-surface-container dark:bg-surface-container text-primary dark:text-primary fixed left-0 h-full w-64 border-r border-outline-variant/50 flat no shadows flex flex-col gap-stack-md p-panel-padding z-10">
+<div class="flex flex-col gap-1 mb-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">GAME HUD</div>
+<div class="font-status-label text-status-label text-on-surface-variant uppercase tracking-widest">V.1.0.42-STABLE</div>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Active Nav: Play -->
+<button class="bg-secondary-container text-on-secondary-container rounded-lg font-bold flex items-center gap-3 px-4 py-3 w-full text-left opacity-80 scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">videogame_asset</span>
+                    Play
+                </button>
+<!-- Inactive Navs -->
+<button class="text-on-surface-variant hover:bg-surface-variant/30 flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">leaderboard</span>
+                    Leaderboard
+                </button>
+<button class="text-on-surface-variant hover:bg-surface-variant/30 flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">keyboard</span>
+                    Controls
+                </button>
+<button class="text-on-surface-variant hover:bg-surface-variant/30 flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">history</span>
+                    History
+                </button>
+</div>
+<div class="mt-auto w-full pt-4 border-t border-outline-variant/50">
+<button class="w-full h-touch-target border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center font-status-label text-status-label tracking-widest uppercase">
+                    RESET SESSION
+                </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-64 flex-1 flex flex-col h-full relative">
+<!-- TopAppBar Shared Component -->
+<header class="bg-background dark:bg-background text-on-background dark:text-on-background docked full-width top-0 border-b border-outline-variant/50 flat no shadows flex justify-between items-center w-full px-gutter h-[80px] shrink-0">
+<div class="font-display-lg text-display-lg font-black tracking-tighter text-primary dark:text-primary truncate uppercase">
+                    TETRIS SUPERVISOR
+                </div>
+<div class="flex gap-4 items-center">
+<button class="h-touch-target w-touch-target flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<button class="h-touch-target w-touch-target flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<button class="h-touch-target w-touch-target flex items-center justify-center text-primary border-b-2 border-primary pb-1 scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+</div>
+</header>
+<!-- Game Canvas Canvas -->
+<main class="flex-1 overflow-hidden p-8 flex items-center justify-center gap-12">
+<!-- Mock HUD Left -->
+<div class="flex flex-col gap-stack-md w-32">
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col items-center">
+<span class="font-status-label text-status-label text-on-surface-variant mb-1 uppercase tracking-widest">HOLD</span>
+<div class="w-[80px] h-[80px] bg-surface grid grid-cols-4 grid-rows-4 gap-[1px] p-[1px] border border-outline-variant/30">
+<!-- Empty mock grid -->
+<div class="bg-surface-container-highest col-start-2 col-span-2 row-start-2 row-span-2"></div>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col items-center">
+<span class="font-status-label text-status-label text-on-surface-variant mb-1 uppercase tracking-widest">SCORE</span>
+<span class="font-data-mono text-data-mono text-primary">042,910</span>
+</div>
+</div>
+<!-- Mock Playfield -->
+<div class="w-[320px] h-[640px] bg-surface border border-outline-variant relative grid grid-cols-10 grid-rows-20">
+<!-- Grid lines simulation -->
+<div class="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"></div>
+<!-- Mock Blocks -->
+<div class="row-start-20 col-start-1 col-span-4 bg-surface-container-highest border border-outline-variant shadow-[0_0_10px_rgba(255,255,255,0.1)]"></div>
+<div class="row-start-20 col-start-6 col-span-5 bg-surface-container-highest border border-outline-variant shadow-[0_0_10px_rgba(255,255,255,0.1)]"></div>
+<div class="row-start-19 col-start-2 col-span-3 bg-surface-container-highest border border-outline-variant shadow-[0_0_10px_rgba(255,255,255,0.1)]"></div>
+</div>
+<!-- Mock HUD Right -->
+<div class="flex flex-col gap-stack-md w-32">
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col items-center">
+<span class="font-status-label text-status-label text-on-surface-variant mb-1 uppercase tracking-widest">NEXT</span>
+<div class="w-[80px] h-[80px] bg-surface grid grid-cols-4 grid-rows-4 gap-[1px] p-[1px] border border-outline-variant/30">
+<div class="bg-surface-container-highest col-start-1 col-span-4 row-start-2 row-span-1"></div>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col items-center">
+<span class="font-status-label text-status-label text-on-surface-variant mb-1 uppercase tracking-widest">LEVEL</span>
+<span class="font-data-mono text-data-mono text-primary">08</span>
+</div>
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col items-center mt-auto">
+<span class="font-status-label text-status-label text-on-surface-variant mb-1 uppercase tracking-widest">LINES</span>
+<span class="font-data-mono text-data-mono text-primary">042</span>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- PAUSE OVERLAY -->
+<!-- Level 2 Overlay: 70% opacity backdrop blur (12px) of background color -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/70 backdrop-blur-[12px]">
+<!-- Center Modal -->
+<div class="bg-surface-container border border-outline-variant p-10 rounded-xl flex flex-col items-center gap-8 w-full max-w-md shadow-2xl relative overflow-hidden">
+<!-- Subtle accent glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-primary/20 blur-md"></div>
+<!-- Header -->
+<div class="text-center flex flex-col gap-2">
+<h1 class="font-display-lg text-display-lg text-primary uppercase tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                    PAUSED
+                </h1>
+<p class="font-status-label text-status-label text-on-surface-variant tracking-[0.2em] uppercase">
+                    Session Suspended
+                </p>
+</div>
+<!-- Stats Module -->
+<div class="w-full flex justify-center gap-12 py-6 border-y border-outline-variant/50 bg-surface/50">
+<div class="flex flex-col items-center gap-1">
+<span class="font-status-label text-status-label text-on-surface-variant tracking-widest uppercase">SCORE</span>
+<span class="font-data-mono text-[28px] leading-[32px] font-semibold text-primary">042,910</span>
+</div>
+<div class="w-px h-full bg-outline-variant/50"></div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-status-label text-status-label text-on-surface-variant tracking-widest uppercase">LEVEL</span>
+<span class="font-data-mono text-[28px] leading-[32px] font-semibold text-primary">08</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full flex flex-col gap-4 mt-2">
+<!-- Primary Action: Resume -->
+<button class="group relative h-[56px] w-full flex items-center justify-center border-2 border-primary bg-primary/5 text-primary font-headline-md text-headline-md uppercase tracking-wider hover:bg-primary hover:text-on-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background">
+<span class="relative z-10 flex items-center gap-2">
+<span class="material-symbols-outlined">play_arrow</span>
+                        RESUME
+                    </span>
+<div class="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</button>
+<!-- Secondary Action: Restart -->
+<button class="h-touch-target w-full flex items-center justify-center border border-outline-variant bg-surface text-on-surface font-body-base text-body-base uppercase tracking-wider hover:bg-surface-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 focus:ring-offset-background gap-2">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+                    RESTART
+                </button>
+<!-- Tertiary Action: Quit -->
+<button class="h-touch-target w-full flex items-center justify-center border border-transparent bg-transparent text-error font-body-base text-body-base uppercase tracking-wider hover:bg-error/10 hover:border-error/30 transition-colors focus:outline-none focus:ring-2 focus:ring-error focus:ring-offset-4 focus:ring-offset-background mt-2 gap-2">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                    QUIT TO MENU
+                </button>
+</div>
+</div>
+</div>
+</body></html>

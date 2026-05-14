@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Controls &amp; Rules - Tetris Supervisor</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#e5e2e1",
+                    "tertiary-container": "#e7e2d9",
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed": "#191c1e",
+                    "background": "#131313",
+                    "surface-variant": "#353535",
+                    "error": "#ffb4ab",
+                    "primary": "#ffffff",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "on-primary-container": "#626567",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "secondary-fixed": "#d5e3fd",
+                    "on-surface-variant": "#c4c7c9",
+                    "secondary-container": "#3c4a5e",
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#cbc6bd",
+                    "on-primary": "#2d3133",
+                    "primary-container": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#494640",
+                    "surface": "#131313",
+                    "surface-bright": "#3a3939",
+                    "inverse-primary": "#5c5f61",
+                    "outline": "#8e9193",
+                    "on-primary-fixed-variant": "#444749",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1d1b16",
+                    "outline-variant": "#444749",
+                    "surface-container": "#201f1f",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "surface-container-high": "#2a2a2a",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#e7e2d9",
+                    "on-secondary": "#233144",
+                    "secondary": "#b9c7e0",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#ffffff",
+                    "on-tertiary-container": "#67645d",
+                    "surface-container-low": "#1c1b1b",
+                    "primary-fixed-dim": "#c4c7c9",
+                    "on-tertiary": "#32302a",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-fixed": "#e0e3e5",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "on-secondary-container": "#abb9d2",
+                    "surface-tint": "#c4c7c9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "touch-target": "44px",
+                    "stack-md": "16px",
+                    "grid-cell": "32px",
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "panel-padding": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "status-label": [
+                            "Geist"
+                    ],
+                    "data-mono": [
+                            "Geist"
+                    ],
+                    "body-base": [
+                            "Geist"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "status-label": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "data-mono": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-base": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-family: 'Material Symbols Outlined';
+          font-weight: normal;
+          font-style: normal;
+          font-size: 24px;
+          line-height: 1;
+          letter-spacing: normal;
+          text-transform: none;
+          display: inline-block;
+          white-space: nowrap;
+          word-wrap: normal;
+          direction: ltr;
+          font-feature-settings: 'liga';
+          -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Custom scrollbar for high-tech feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444749; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8e9193; 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-base text-body-base h-screen flex overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex flex-col bg-surface-container dark:bg-surface-container text-primary dark:text-primary fixed left-0 h-full w-64 border-r border-outline-variant/50 p-panel-padding z-20">
+<div class="mb-12">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight mb-1">GAME HUD</div>
+<div class="font-status-label text-status-label text-on-surface-variant">V.1.0.42-STABLE</div>
+</div>
+<div class="flex-1 flex flex-col gap-stack-sm">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-data-mono text-data-mono uppercase tracking-wide text-sm">Play</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-data-mono text-data-mono uppercase tracking-wide text-sm">Leaderboard</span>
+</a>
+<!-- Active (Semantic match: Controls) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold opacity-80 scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">keyboard</span>
+<span class="font-data-mono text-data-mono uppercase tracking-wide text-sm">Controls</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 hover:text-primary transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-data-mono text-data-mono uppercase tracking-wide text-sm">History</span>
+</a>
+</div>
+<div class="mt-auto pt-8">
+<button class="w-full flex justify-center items-center h-touch-target border border-error text-error hover:bg-error/10 font-status-label text-status-label rounded-DEFAULT transition-colors">
+                RESET SESSION
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col md:ml-64 relative min-w-0 h-full overflow-hidden">
+<!-- TopAppBar (from JSON) -->
+<header class="bg-background dark:bg-background text-on-background dark:text-on-background full-width top-0 border-b border-outline-variant/50 flex justify-between items-center w-full px-gutter h-[64px] flex-shrink-0 z-10">
+<div class="font-display-lg text-[24px] font-black tracking-tighter text-primary dark:text-primary uppercase leading-none">
+                TETRIS SUPERVISOR
+            </div>
+<div class="flex items-center gap-4">
+<button aria-label="settings" class="text-on-surface-variant hover:text-primary transition-colors duration-200 p-2">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button aria-label="help" class="text-primary border-b-2 border-primary pb-1 p-2">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button aria-label="pause" class="text-on-surface-variant hover:text-primary transition-colors duration-200 p-2">
+<span class="material-symbols-outlined">pause</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-gutter md:p-panel-padding pb-32">
+<!-- Controls Overlay Panel (Bento Grid) -->
+<div class="max-w-5xl mx-auto">
+<!-- Action Header -->
+<div class="flex justify-between items-end mb-8 border-b border-outline-variant/30 pb-4">
+<div>
+<h1 class="font-display-lg text-[32px] md:text-display-lg text-primary tracking-tight uppercase">System Parameters</h1>
+<p class="font-status-label text-status-label text-on-surface-variant mt-2">INPUT MAPPINGS &amp; LOGIC RULES</p>
+</div>
+<button class="h-touch-target px-6 flex items-center gap-2 bg-primary text-on-primary font-status-label text-status-label rounded-sm hover:bg-tertiary-container transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                        CLOSE
+                    </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- Keyboard Mapping Card (Spans 8 cols) -->
+<div class="md:col-span-8 bg-surface-container border border-outline-variant/50 rounded-lg p-panel-padding flex flex-col relative overflow-hidden group">
+<!-- Decorative background grid element -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px); background-size: 32px 32px;"></div>
+<h2 class="font-data-mono text-data-mono text-primary mb-8 flex items-center gap-2 relative z-10">
+<span class="material-symbols-outlined text-secondary">keyboard</span>
+                            PHYSICAL INPUT MAPPING
+                        </h2>
+<div class="flex-1 flex flex-col items-center justify-center gap-12 relative z-10">
+<!-- Arrow Keys Group -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex justify-center mb-2">
+<div class="w-12 h-12 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container-high text-on-surface-variant shadow-[0_4px_0_0_#1c1b1b]">
+<span class="material-symbols-outlined">arrow_upward</span>
+</div>
+<div class="ml-4 flex items-center font-status-label text-status-label text-secondary">HARD DROP</div>
+</div>
+<div class="flex gap-2">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container-high text-on-surface-variant shadow-[0_4px_0_0_#1c1b1b]">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<span class="font-status-label text-status-label text-on-surface-variant">MOVE L</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 border-2 border-primary rounded flex items-center justify-center bg-primary/10 text-primary shadow-[0_4px_0_0_#444749] ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
+<span class="material-symbols-outlined">arrow_downward</span>
+</div>
+<span class="font-status-label text-status-label text-primary">SOFT DROP</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container-high text-on-surface-variant shadow-[0_4px_0_0_#1c1b1b]">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+<span class="font-status-label text-status-label text-on-surface-variant">MOVE R</span>
+</div>
+</div>
+</div>
+<!-- Action Keys -->
+<div class="flex gap-8 w-full justify-center">
+<div class="flex flex-col items-center gap-2 w-48">
+<div class="w-full h-12 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container-high text-on-surface-variant shadow-[0_4px_0_0_#1c1b1b]">
+<span class="font-data-mono text-sm tracking-widest">SPACE</span>
+</div>
+<span class="font-status-label text-status-label text-secondary">HOLD PIECE</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 border-2 border-outline-variant rounded flex items-center justify-center bg-surface-container-high text-on-surface-variant shadow-[0_4px_0_0_#1c1b1b]">
+<span class="font-data-mono text-sm">P</span>
+</div>
+<span class="font-status-label text-status-label text-on-surface-variant">PAUSE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Touch Gestures Card (Spans 4 cols) -->
+<div class="md:col-span-4 bg-surface-container border border-outline-variant/50 rounded-lg p-panel-padding flex flex-col">
+<h2 class="font-data-mono text-data-mono text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">touch_app</span>
+                            TOUCH LOGIC
+                        </h2>
+<div class="flex-1 flex flex-col gap-6">
+<div class="flex items-center gap-4 bg-surface-container-high p-3 rounded border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">swipe_left</span>
+</div>
+<div>
+<div class="font-status-label text-status-label text-primary">SWIPE HORIZONTAL</div>
+<div class="text-xs text-on-surface-variant mt-1">Move Tetromino</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high p-3 rounded border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">swipe_down</span>
+</div>
+<div>
+<div class="font-status-label text-status-label text-primary">SWIPE DOWN</div>
+<div class="text-xs text-on-surface-variant mt-1">Soft Drop</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high p-3 rounded border border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">touch_app</span>
+</div>
+<div>
+<div class="font-status-label text-status-label text-primary">SINGLE TAP</div>
+<div class="text-xs text-secondary mt-1">Rotate 90° Clockwise</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scoring Rules Card (Spans 12 cols) -->
+<div class="md:col-span-12 bg-surface-container border border-outline-variant/50 rounded-lg p-panel-padding flex flex-col mt-4">
+<h2 class="font-data-mono text-data-mono text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">rule</span>
+                            CLEARANCE MULTIPLIERS
+                        </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest border-l-2 border-outline-variant p-4">
+<div class="font-status-label text-status-label text-on-surface-variant mb-1">SINGLE LINE</div>
+<div class="font-data-mono text-[24px] text-primary">100<span class="text-sm text-on-surface-variant ml-1">pts</span></div>
+</div>
+<div class="bg-surface-container-lowest border-l-2 border-secondary p-4">
+<div class="font-status-label text-status-label text-secondary mb-1">DOUBLE LINE</div>
+<div class="font-data-mono text-[24px] text-primary">300<span class="text-sm text-on-surface-variant ml-1">pts</span></div>
+</div>
+<div class="bg-surface-container-lowest border-l-2 border-primary-container p-4">
+<div class="font-status-label text-status-label text-primary-container mb-1">TRIPLE LINE</div>
+<div class="font-data-mono text-[24px] text-primary">500<span class="text-sm text-on-surface-variant ml-1">pts</span></div>
+</div>
+<div class="bg-surface-container-highest border-l-4 border-primary p-4 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+<div class="font-status-label text-status-label text-primary mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bolt</span> TETRIS
+                                </div>
+<div class="font-data-mono text-[24px] text-primary font-bold">800<span class="text-sm text-primary/70 ml-1">pts</span></div>
+</div>
+</div>
+<div class="mt-6 text-sm text-on-surface-variant border-t border-outline-variant/30 pt-4 flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">info</span>
+<p>Points scale exponentially based on current level multiplier. Soft drops award 1pt per cell. Hard drops award 2pts per cell. Successive line clears engage combo multiplier.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer (from JSON) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-on-surface-variant dark:text-on-surface-variant font-status-label text-status-label docked full-width bottom-0 border-t border-outline-variant/50 flex justify-between items-center px-gutter py-2 w-full absolute bottom-0 z-10">
+<div>
+                © 2024 GRID LOGIC SYSTEMS. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-4">
+<a class="text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">Terms</a>
+<a class="text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">Support</a>
+</div>
+</footer>
+</main>
+</body></html>
